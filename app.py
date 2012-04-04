@@ -3,7 +3,7 @@ import json
 import random
 import psycopg2
 
-from flask import Flask
+from flask import Flask, request
 from flask_heroku import Heroku
 import os
 app = Flask(__name__)
