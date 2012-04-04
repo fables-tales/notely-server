@@ -73,7 +73,7 @@ def endpair(unique_code):
         return json.dumps({"err":"no pairing request matches that code"}) 
         
 
-@app.route("/sync", methods="POST")
+@app.route("/sync", methods=["POST"])
 def sync():
     data = request.form["actions"]
     return data
