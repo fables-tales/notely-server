@@ -70,7 +70,7 @@ def endpair(unique_code):
         delete_pair_request(code);
         return json.dumps({"uuid":uuid})
     else:
-        return "pairing request not found"
+        return json.dumps({"err":"no pairing request matches that code"}) 
         
 
 @app.route("/sync", methods="POST")
