@@ -87,18 +87,15 @@ def encode_user_actions(uuid, actions):
     dict["user-id"] = uuid
     dict["actions"] = actions
     new_messages = []
-    i = 1
     sorted_actions = sorted(actions["actions"], lambda x,y:int(x["time"] - y["time"])) 
 
     for action in sorted_actions:
         if action.has_key("add"):
-            new_messages.append({"message": action["add"], "id":i}) 
-            i += 1
+            new_messages.append({"message": action["add"], "id":len(new_messages)+1}) 
         if action.has_key("del"):
             for message in new_messages:
                 if message["message"] == action["del"]:
                     new_messages.remove(message)
-                    i -= 1
                     break
     dict["messages"] = new_messages
     return dict
@@ -136,7 +133,6 @@ def sync():
         if actions == None:
             create_user_actions(uuid)
             actions = json.dumps({"actions":[]})
-        print actions
         actions = json.loads(actions)
         combine_user_actions(actions, obj)
         save_user_actions(uuid, actions)
