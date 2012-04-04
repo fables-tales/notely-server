@@ -96,9 +96,9 @@ def encode_user_actions(uuid, actions):
             for message in new_messages:
                 if message["message"] == action["del"]:
                     new_messages.remove(message)
+                    for i in xrange(0, len(new_messages)):
+                        new_messages[i]["id"] = i+1
                     break
-    for i in xrange(0, len(new_messages)):
-        new_messages[i]["id"] = i+1
     dict["messages"] = new_messages
     return dict
 
