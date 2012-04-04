@@ -134,7 +134,7 @@ def sync():
         actions = get_user_actions(uuid)
         if actions == None:
             create_user_actions(uuid)
-            actions = {"actions":[]}
+            actions = json.dumps({"actions":[]})
         print actions
         actions = json.loads(actions)
         combine_user_actions(actions, obj)
