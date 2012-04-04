@@ -69,7 +69,7 @@ def create_user_actions(uuid):
     conn = create_conn()
     cursor = conn.cursor()
     cursor.execute("INSERT INTO useractions VALUES (%s, '')", (uuid,))
-    cursor.commit()
+    conn.commit()
 
 def combine_user_actions(existing, new):
     for action in new["actions"]:
