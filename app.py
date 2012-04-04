@@ -86,7 +86,7 @@ def encode_user_actions(uuid, actions):
     dict["user-id"] = uuid
     dict["actions"] = actions
     new_messages = []
-    id = 1
+    i = 1
     sorted_actions = sorted(actions["actions"], lambda x,y:int(x["time"] - y["time"])) 
 
     for action in sorted_actions:
