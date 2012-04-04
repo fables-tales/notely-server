@@ -75,7 +75,8 @@ def endpair(unique_code):
 
 @app.route("/sync", methods="POST")
 def sync():
-    data = request.form["data"]
+    data = request.form["actions"]
+    return data
 
 @app.route("/")
 def index():
