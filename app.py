@@ -79,7 +79,7 @@ def save_user_actions(uuid, actions):
     conn = create_conn()
     cursor = conn.cursor()
     cursor.execute("UPDATE useractions SET actions=%s WHERE uuid=%s", (json.dumps(actions), uuid))
-    cursor.commit()
+    conn.commit()
 
 def encode_user_actions(uuid, actions):
     dict = {}
