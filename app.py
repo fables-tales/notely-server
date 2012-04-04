@@ -73,7 +73,8 @@ def create_user_actions(uuid):
 
 def combine_user_actions(existing, new):
     for action in new["actions"]:
-        existing["actions"].append(action)
+        if action not in existing["actions"]:
+            existing["actions"].append(action)
 
 def save_user_actions(uuid, actions):
     conn = create_conn()
