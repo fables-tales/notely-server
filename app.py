@@ -131,7 +131,7 @@ def sync():
     if True:
         obj = json.loads(data)
         uuid = request.form["uuid"] 
-        actions = get_user_actions()
+        actions = get_user_actions(uuid)
         if actions == None:
             create_user_actions(uuid)
         actions = json.loads(actions)
