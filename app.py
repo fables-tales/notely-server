@@ -57,7 +57,7 @@ def delete_pair_request(code):
 def get_user_actions(user):
     conn = create_conn()
     cursor = conn.cursor()
-    cursor.execute("SELECT actions FROM useractions WHERE user=%s", (user,))
+    cursor.execute("SELECT actions FROM useractions WHERE uuid=%s", (user,))
     result = cursor.fetchone()
     if result == None:
         return None
