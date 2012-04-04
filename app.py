@@ -87,7 +87,7 @@ def encode_user_actions(uuid, actions):
     dict["actions"] = actions
     new_messages = []
     id = 1
-    sorted_actions = sorted(actions["actions"], lambda x,y:x["time"] - y["time"]) 
+    sorted_actions = sorted(actions["actions"], lambda x,y:int(x["time"] - y["time"])) 
 
     for action in sorted_actions:
         if action.has_key("add"):
